@@ -16,10 +16,15 @@ public class Account {
     @Getter
     private final AccountId id;
 
+    @Getter
+    private final Money baselineBalance;
+
+    @Getter
+    private final ActivityWindow activityWindow;
+
     @Value
     public static class AccountId {
         Long value;
     }
-
 
 }
