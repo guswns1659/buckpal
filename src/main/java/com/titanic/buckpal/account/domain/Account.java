@@ -27,4 +27,8 @@ public class Account {
         Long value;
     }
 
+    public static Account withId(AccountId accountId, Money baselineBalance, ActivityWindow activityWindow) {
+        return new Account(accountId, baselineBalance, activityWindow);
+    }
+
 }

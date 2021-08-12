@@ -1,4 +1,4 @@
-package com.titanic.buckpal.account.common;
+package com.titanic.buckpal.common;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

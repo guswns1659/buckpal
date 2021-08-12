@@ -9,4 +9,6 @@ public class ActivityWindow {
 
     private List<Activity> activities;
 
+
+
 }

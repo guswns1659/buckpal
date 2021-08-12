@@ -2,7 +2,7 @@ package com.titanic.buckpal.account.adapter.out.persistence;
 
 import com.titanic.buckpal.account.application.port.out.LoadAccountPort;
 import com.titanic.buckpal.account.application.port.out.UpdateAccountStatePort;
-import com.titanic.buckpal.account.common.PersistenceAdapter;
+import com.titanic.buckpal.common.PersistenceAdapter;
 import com.titanic.buckpal.account.domain.Account;
 import com.titanic.buckpal.account.domain.Account.AccountId;
 import java.time.LocalDateTime;
