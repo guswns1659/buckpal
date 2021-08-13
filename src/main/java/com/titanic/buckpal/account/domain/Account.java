@@ -31,4 +31,10 @@ public class Account {
         return new Account(accountId, baselineBalance, activityWindow);
     }
 
+    public Money calculate() {
+        return Money.add(
+            this.baselineBalance,
+            this.activityWindow.calculateBalance(this.id));
+    }
+
 }
