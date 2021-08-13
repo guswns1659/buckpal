@@ -7,15 +7,14 @@ import com.titanic.buckpal.account.domain.Money;
 
 public class AccountTestData {
 
-    /*public static AccountBuilder defaultAccount() {
-        return new AccountBuilder().withAccountId(new AccountId(42L))
+    public static AccountBuilder defaultAccount() {
+        return new AccountBuilder()
+            .withAccountId(new AccountId(42L))
             .withBaselineBalance(Money.of(999L))
-            .withActivityWindow(new ActivityWindow(new ActivityWindow(
-                ActivityTestData.
-            )
-
-            ))
-    }*/
+            .withActivityWindow(new ActivityWindow(
+                ActivityTestData.defaultActivity().build(),
+                ActivityTestData.defaultActivity().build()));
+    }
 
     public static class AccountBuilder {
 
