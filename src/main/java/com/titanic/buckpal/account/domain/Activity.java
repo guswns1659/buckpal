@@ -1,6 +1,7 @@
 package com.titanic.buckpal.account.domain;
 
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
 
@@ -18,4 +19,8 @@ public class Activity {
     public static class ActivityId {
         Long value;
     }
+
+//    public Activity(
+//        @NonNull Ac
+//    )
 }
