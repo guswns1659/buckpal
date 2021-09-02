@@ -24,4 +24,7 @@ public class Money {
         return new Money(this.amount.negate());
     }
 
+    public boolean isPositiveOrZero() {
+        return this.amount.compareTo(BigInteger.ZERO) >= 0;
+    }
 }

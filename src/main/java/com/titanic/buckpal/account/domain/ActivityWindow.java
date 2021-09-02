@@ -3,6 +3,7 @@ package com.titanic.buckpal.account.domain;
 import com.titanic.buckpal.account.domain.Account.AccountId;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import lombok.NonNull;
 
@@ -34,6 +35,14 @@ public class ActivityWindow {
             .reduce(Money.ZERO, Money::add);
 
         return Money.add(depositBalance, withdrawalBalance.negate());
+    }
+
+    public void addActivity(Activity activity) {
+        this.activities.add(activity);
+    }
+
+    public List<Activity> getActivities() {
+        return Collections.unmodifiableList(this.activities);
     }
 
 }

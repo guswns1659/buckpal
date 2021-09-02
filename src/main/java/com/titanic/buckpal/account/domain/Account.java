@@ -1,5 +1,6 @@
 package com.titanic.buckpal.account.domain;
 
+import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,8 +23,40 @@ public class Account {
     @Getter
     private final ActivityWindow activityWindow;
 
+    /**
+     * Tries to withdraw a certain amount of money from this account. If successful, creates a new activity with a
+     * negative value.
+     */
+    public boolean withdraw(Money money, AccountId targetAccountId) {
+
+        if (!mayWithdraw(money)) {
+            return false;
+        }
+
+        Activity withdrawal = new Activity(
+            this.id,
+            this.id,
+            targetAccountId,
+            LocalDateTime.now(),
+            money
+        );
+        this.activityWindow.addActivity(withdrawal);
+        return true;
+    }
+
+    public Money calculateBalance() {
+        return Money.add(this.baselineBalance,
+            this.activityWindow.calculateBalance(this.id));
+    }
+
+    private boolean mayWithdraw(Money money) {
+        return Money.add(this.calculateBalance(),
+            money.negate()).isPositiveOrZero();
+    }
+
     @Value
     public static class AccountId {
+
         Long value;
     }
 
