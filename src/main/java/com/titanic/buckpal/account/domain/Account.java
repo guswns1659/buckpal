@@ -70,4 +70,14 @@ public class Account {
             this.activityWindow.calculateBalance(this.id));
     }
 
+    public boolean deposit(Money money, AccountId sourceAccountId) {
+        Activity deposit = new Activity(
+            this.id,
+            sourceAccountId,
+            this.id,
+            LocalDateTime.now(),
+            money);
+        this.activityWindow.addActivity(deposit);
+        return true;
+    }
 }
